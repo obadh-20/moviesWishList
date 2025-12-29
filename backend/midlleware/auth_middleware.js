@@ -4,7 +4,7 @@ import { getPrisma } from "../lib/prisma.js";
 // Read the token from the request
 // Check if token is valid
 export const authMiddleware = async (req, res, next) => {
-    console.log("auth middleware called");
+    
 
     let token;
 
@@ -23,6 +23,7 @@ export const authMiddleware = async (req, res, next) => {
     }
  
     if (!token) {
+        console.log("No token found");
         return res.status(401).json({ error: "Not authorized, no token provided" });
     }
 

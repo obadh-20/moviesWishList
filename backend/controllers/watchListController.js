@@ -22,7 +22,7 @@ export const addMovieToWatchlist = async (req, res) => {
     try {
         const { movieId, status, rating } = req.body;
       
-        if (!movieId ||!status) { 
+        if (!movieId) { 
             return res.status(400).json({ message: "missing some values" });
         }
         const prisma = getPrisma();
@@ -37,7 +37,7 @@ export const addMovieToWatchlist = async (req, res) => {
             data: {
                 userId: req.user.id,
                 movieId,
-                status,
+                status: status ? status : "PLANNED",
                 rating: rating ? rating : 0,
             }
         });

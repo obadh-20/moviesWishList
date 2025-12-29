@@ -5,12 +5,17 @@ import movieRoutes from "./routes/movieRoutes.js"
 import auth from "./routes/auth.js"
 import watchlist from "./routes/watchList.js"
 import cookieParser from "cookie-parser";
+import cors from "cors";
 const app = express();
 const PORT = 4000;
 
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({
+    origin: "http://localhost:3000", // البورت اللي يعمل عليه Next
+    credentials: true, // مهم عشان Cookie تنتقل
+}));
 app.use("/movies", movieRoutes);
 app.use("/auth", auth);
 app.use("/watchlist", watchlist);
