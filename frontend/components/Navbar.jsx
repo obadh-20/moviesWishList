@@ -65,20 +65,20 @@ export function NavigationMenuDemo() {
                     href="/"
                   >
                     <div className="mb-2 text-lg font-medium sm:mt-4">
-                      shadcn/ui
+                      Created By Me
                     </div>
                     <p className="text-muted-foreground text-sm leading-tight">
-                      Beautifully designed components built with Tailwind CSS.
+                      A Full Stack Movie Watchlist Application
                     </p>
                   </Link>
                 </NavigationMenuLink>
               </li>
 
-              <ListItem href="/" title="Introduction">
+              <ListItem href="/" title="Home">
                 This a Website where you can find movies of your interest.
               </ListItem>
 
-              <ListItem href="/watchlist" title="Installation">
+              <ListItem href="/watchlist" title="Watchlist">
                 You can add movies to your watchlist by registering an account.
               </ListItem>
             </ul>
@@ -92,11 +92,11 @@ export function NavigationMenuDemo() {
                 You can browse all movies in here.
               </ListItem>
 
-              <ListItem href="/movies/pupoular" title="Popular Movies">
+              <ListItem href="/movies" title="Popular Movies">
                 Most watched movies by days.
               </ListItem>
 
-              <ListItem href="/movies/Top" title="Top Rated Movies">
+              <ListItem href="/movies" title="Top Rated Movies">
                 Top rated movies in all time.
               </ListItem>
             </ul>

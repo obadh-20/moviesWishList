@@ -3,7 +3,7 @@ import { getUserWatchList, addMovieToWatchlist,deleteMovieFromWatchlist } from "
 import { authMiddleware } from "../midlleware/auth_middleware.js"
 const router = Router();
 router.use(authMiddleware);
-router.post("/",  getUserWatchList);
+router.get("/",  getUserWatchList);
 router.post("/add",addMovieToWatchlist);
 router.delete("/remove", deleteMovieFromWatchlist);
 

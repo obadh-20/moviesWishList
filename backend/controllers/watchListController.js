@@ -4,15 +4,21 @@ export const getUserWatchList = async (req, res) => {
     try {
         
         const prisma = getPrisma();
-
+        const userId = req.user?.id;
         console.log("fetching watchlist for user:", req.user.id);
         const watchlist = await prisma.watchlistItem.findMany({
-            where: { userId: req.user.id }
+            where: {
+                userId,
+            },
+            include: {
+                movie: true,
+            },
+            orderBy: {
+                createdAt: "desc",
+            },
         });
-        if (watchlist.length === 0) {
-          return  res.status(404).json({ message: "No movies in the watchlist" });
-        } 
-         return   res.status(200).json({ watchlist });
+
+       return res.json(watchlist);
         
     } catch (error) { 
         console.log("error in fetching user watchlist", error);
